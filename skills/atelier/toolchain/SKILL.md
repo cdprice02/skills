@@ -33,6 +33,7 @@ a single-command fix; there isn't a stable one.
 | typecheck              | `cargo check --all-targets`                                     |
 | lint                   | `cargo clippy --all-targets`                                    |
 | fmt                    | `cargo fmt`                                                      |
+| pre-push (CI parity)   | `cargo fmt --check`, `cargo clippy --all-targets -- -D warnings`, test, `RUSTDOCFLAGS='-D warnings' cargo doc --no-deps` |
 | bench                  | `cargo bench` (criterion backend)                                |
 | find a crate           | `cargo search NAME`, then `cargo info NAME` before adding        |
 | add a crate            | `cargo add NAME --features ...`                                  |
@@ -49,6 +50,7 @@ a single-command fix; there isn't a stable one.
 | typecheck | `mypy`                 |
 | lint      | `ruff check`            |
 | fmt       | `ruff format`           |
+| pre-push  | `ruff format --check`, `ruff check`, `mypy`, test |
 
 ## Node (`package.json`)
 
