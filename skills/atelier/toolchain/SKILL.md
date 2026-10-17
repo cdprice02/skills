@@ -41,6 +41,42 @@ a single-command fix; there isn't a stable one.
 | scaffold               | `cargo new NAME`, or `cargo generate TEMPLATE`                   |
 | profile                | `samply record -- ./target/release/BIN`                          |
 
+### Strict Clippy (new crates only)
+
+Opt-in for a crate created from scratch. An established codebase adopts it
+deliberately and separately: switching it on at once buries real work under
+unrelated lint errors.
+
+`Cargo.toml`:
+
+```toml
+[lints.clippy]
+pedantic = { level = "deny", priority = -1 }
+nursery = { level = "deny", priority = -1 }
+unwrap_used = "deny"
+expect_used = "deny"
+indexing_slicing = "deny"
+arithmetic_side_effects = "deny"
+unreachable = "deny"
+unimplemented = "deny"
+unchecked_time_subtraction = "deny"
+todo = "deny"
+string_slice = "deny"
+panic_in_result_fn = "deny"
+panic = "deny"
+exit = "deny"
+as_conversions = "deny"
+```
+
+`clippy.toml`:
+
+```toml
+allow-unwrap-in-tests = true
+allow-expect-in-tests = true
+allow-panic-in-tests = true
+allow-indexing-slicing-in-tests = true
+```
+
 ## Python (`pyproject.toml`)
 
 | Job       | Command               |
