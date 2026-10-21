@@ -92,3 +92,10 @@ allow-indexing-slicing-in-tests = true
 
 The `scripts` block in `package.json` is the source of truth here and needs
 no caching: read it and use it directly.
+
+Package manager: the lockfile in the repo decides (`bun.lock` or `bun.lockb`
+means bun, `pnpm-lock.yaml` means pnpm); never switch a repo's manager. With
+no lockfile, default to bun. Use pnpm where the ecosystem standardises on it
+(Cloudflare tooling, the portfolio site). Never npm, except for tools that
+only document it. One-off runners follow the same split: `bunx`, `pnpm dlx`.
+Global tools install with bun.
