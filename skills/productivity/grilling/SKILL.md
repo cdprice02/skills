@@ -7,6 +7,8 @@ Interview the user relentlessly until you reach a shared understanding. Map this
 
 Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.
 
+The first round always carries a **prior art** question: which crate, tool, or standard practice already does this, and should we adopt it rather than build? Which candidates exist is a fact for you to find; adopting or building is the user's decision. Ask it again at any branch that proposes building new tooling.
+
 Format a round like so:
 
 ```
